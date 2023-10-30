@@ -1,0 +1,3 @@
+/home/saradaria/Tema1_paoo/build/CMakeFiles/EmailTemplate.dir
+/home/saradaria/Tema1_paoo/build/CMakeFiles/edit_cache.dir
+/home/saradaria/Tema1_paoo/build/CMakeFiles/rebuild_cache.dir
