@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgmail.a CMakeFiles/gmail.dir/Gmail.cpp.o
+/usr/bin/ranlib libgmail.a

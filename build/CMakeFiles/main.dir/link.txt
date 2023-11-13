@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/main.dir/main.cpp.o -o main  email/libemail.a gmail/libgmail.a mail_manager/libmail_manager.a 

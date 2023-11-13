@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
-project(EmailTemplate VERSION 1.0)
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_STANDARD_REQUIRED True)
-add_executable(EmailTemplate main.cpp)
+project(EmailProject)
+
+add_subdirectory(email)
+add_subdirectory(gmail)
+add_subdirectory(mail_manager)
+
+add_executable(main main.cpp)
+target_link_libraries(main email gmail mail_manager)

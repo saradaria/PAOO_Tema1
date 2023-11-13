@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmail_manager.a CMakeFiles/mail_manager.dir/MailManager.cpp.o
+/usr/bin/ranlib libmail_manager.a

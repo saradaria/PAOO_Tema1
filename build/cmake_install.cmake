@@ -1,4 +1,4 @@
-# Install script for directory: /home/saradaria/Tema1_paoo/src
+# Install script for directory: /home/saradaria/PAOO_teme/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -42,6 +42,14 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("/home/saradaria/PAOO_teme/build/email/cmake_install.cmake")
+  include("/home/saradaria/PAOO_teme/build/gmail/cmake_install.cmake")
+  include("/home/saradaria/PAOO_teme/build/mail_manager/cmake_install.cmake")
+
+endif()
+
 if(CMAKE_INSTALL_COMPONENT)
   set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
 else()
@@ -50,5 +58,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/saradaria/Tema1_paoo/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/saradaria/PAOO_teme/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

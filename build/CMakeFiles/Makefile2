@@ -54,51 +54,184 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/saradaria/Tema1_paoo/src
+CMAKE_SOURCE_DIR = /home/saradaria/PAOO_teme/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/saradaria/Tema1_paoo/build
+CMAKE_BINARY_DIR = /home/saradaria/PAOO_teme/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/EmailTemplate.dir/all
+all: CMakeFiles/main.dir/all
+all: email/all
+all: gmail/all
+all: mail_manager/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: email/preinstall
+preinstall: gmail/preinstall
+preinstall: mail_manager/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/EmailTemplate.dir/clean
+clean: CMakeFiles/main.dir/clean
+clean: email/clean
+clean: gmail/clean
+clean: mail_manager/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/EmailTemplate.dir
+# Directory level rules for directory email
+
+# Recursive "all" directory target.
+email/all: email/CMakeFiles/email.dir/all
+.PHONY : email/all
+
+# Recursive "preinstall" directory target.
+email/preinstall:
+.PHONY : email/preinstall
+
+# Recursive "clean" directory target.
+email/clean: email/CMakeFiles/email.dir/clean
+.PHONY : email/clean
+
+#=============================================================================
+# Directory level rules for directory gmail
+
+# Recursive "all" directory target.
+gmail/all: gmail/CMakeFiles/gmail.dir/all
+.PHONY : gmail/all
+
+# Recursive "preinstall" directory target.
+gmail/preinstall:
+.PHONY : gmail/preinstall
+
+# Recursive "clean" directory target.
+gmail/clean: gmail/CMakeFiles/gmail.dir/clean
+.PHONY : gmail/clean
+
+#=============================================================================
+# Directory level rules for directory mail_manager
+
+# Recursive "all" directory target.
+mail_manager/all: mail_manager/CMakeFiles/mail_manager.dir/all
+.PHONY : mail_manager/all
+
+# Recursive "preinstall" directory target.
+mail_manager/preinstall:
+.PHONY : mail_manager/preinstall
+
+# Recursive "clean" directory target.
+mail_manager/clean: mail_manager/CMakeFiles/mail_manager.dir/clean
+.PHONY : mail_manager/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/main.dir
 
 # All Build rule for target.
-CMakeFiles/EmailTemplate.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/EmailTemplate.dir/build.make CMakeFiles/EmailTemplate.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/EmailTemplate.dir/build.make CMakeFiles/EmailTemplate.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saradaria/Tema1_paoo/build/CMakeFiles --progress-num=1,2 "Built target EmailTemplate"
-.PHONY : CMakeFiles/EmailTemplate.dir/all
+CMakeFiles/main.dir/all: email/CMakeFiles/email.dir/all
+CMakeFiles/main.dir/all: gmail/CMakeFiles/gmail.dir/all
+CMakeFiles/main.dir/all: mail_manager/CMakeFiles/mail_manager.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saradaria/PAOO_teme/build/CMakeFiles --progress-num=7,8 "Built target main"
+.PHONY : CMakeFiles/main.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/EmailTemplate.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/saradaria/Tema1_paoo/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/EmailTemplate.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/saradaria/Tema1_paoo/build/CMakeFiles 0
-.PHONY : CMakeFiles/EmailTemplate.dir/rule
+CMakeFiles/main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saradaria/PAOO_teme/build/CMakeFiles 8
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saradaria/PAOO_teme/build/CMakeFiles 0
+.PHONY : CMakeFiles/main.dir/rule
 
 # Convenience name for target.
-EmailTemplate: CMakeFiles/EmailTemplate.dir/rule
-.PHONY : EmailTemplate
+main: CMakeFiles/main.dir/rule
+.PHONY : main
 
 # clean rule for target.
-CMakeFiles/EmailTemplate.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/EmailTemplate.dir/build.make CMakeFiles/EmailTemplate.dir/clean
-.PHONY : CMakeFiles/EmailTemplate.dir/clean
+CMakeFiles/main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/clean
+.PHONY : CMakeFiles/main.dir/clean
+
+#=============================================================================
+# Target rules for target email/CMakeFiles/email.dir
+
+# All Build rule for target.
+email/CMakeFiles/email.dir/all:
+	$(MAKE) $(MAKESILENT) -f email/CMakeFiles/email.dir/build.make email/CMakeFiles/email.dir/depend
+	$(MAKE) $(MAKESILENT) -f email/CMakeFiles/email.dir/build.make email/CMakeFiles/email.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saradaria/PAOO_teme/build/CMakeFiles --progress-num=1,2 "Built target email"
+.PHONY : email/CMakeFiles/email.dir/all
+
+# Build rule for subdir invocation for target.
+email/CMakeFiles/email.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saradaria/PAOO_teme/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 email/CMakeFiles/email.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saradaria/PAOO_teme/build/CMakeFiles 0
+.PHONY : email/CMakeFiles/email.dir/rule
+
+# Convenience name for target.
+email: email/CMakeFiles/email.dir/rule
+.PHONY : email
+
+# clean rule for target.
+email/CMakeFiles/email.dir/clean:
+	$(MAKE) $(MAKESILENT) -f email/CMakeFiles/email.dir/build.make email/CMakeFiles/email.dir/clean
+.PHONY : email/CMakeFiles/email.dir/clean
+
+#=============================================================================
+# Target rules for target gmail/CMakeFiles/gmail.dir
+
+# All Build rule for target.
+gmail/CMakeFiles/gmail.dir/all:
+	$(MAKE) $(MAKESILENT) -f gmail/CMakeFiles/gmail.dir/build.make gmail/CMakeFiles/gmail.dir/depend
+	$(MAKE) $(MAKESILENT) -f gmail/CMakeFiles/gmail.dir/build.make gmail/CMakeFiles/gmail.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saradaria/PAOO_teme/build/CMakeFiles --progress-num=3,4 "Built target gmail"
+.PHONY : gmail/CMakeFiles/gmail.dir/all
+
+# Build rule for subdir invocation for target.
+gmail/CMakeFiles/gmail.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saradaria/PAOO_teme/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmail/CMakeFiles/gmail.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saradaria/PAOO_teme/build/CMakeFiles 0
+.PHONY : gmail/CMakeFiles/gmail.dir/rule
+
+# Convenience name for target.
+gmail: gmail/CMakeFiles/gmail.dir/rule
+.PHONY : gmail
+
+# clean rule for target.
+gmail/CMakeFiles/gmail.dir/clean:
+	$(MAKE) $(MAKESILENT) -f gmail/CMakeFiles/gmail.dir/build.make gmail/CMakeFiles/gmail.dir/clean
+.PHONY : gmail/CMakeFiles/gmail.dir/clean
+
+#=============================================================================
+# Target rules for target mail_manager/CMakeFiles/mail_manager.dir
+
+# All Build rule for target.
+mail_manager/CMakeFiles/mail_manager.dir/all:
+	$(MAKE) $(MAKESILENT) -f mail_manager/CMakeFiles/mail_manager.dir/build.make mail_manager/CMakeFiles/mail_manager.dir/depend
+	$(MAKE) $(MAKESILENT) -f mail_manager/CMakeFiles/mail_manager.dir/build.make mail_manager/CMakeFiles/mail_manager.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saradaria/PAOO_teme/build/CMakeFiles --progress-num=5,6 "Built target mail_manager"
+.PHONY : mail_manager/CMakeFiles/mail_manager.dir/all
+
+# Build rule for subdir invocation for target.
+mail_manager/CMakeFiles/mail_manager.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saradaria/PAOO_teme/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mail_manager/CMakeFiles/mail_manager.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saradaria/PAOO_teme/build/CMakeFiles 0
+.PHONY : mail_manager/CMakeFiles/mail_manager.dir/rule
+
+# Convenience name for target.
+mail_manager: mail_manager/CMakeFiles/mail_manager.dir/rule
+.PHONY : mail_manager
+
+# clean rule for target.
+mail_manager/CMakeFiles/mail_manager.dir/clean:
+	$(MAKE) $(MAKESILENT) -f mail_manager/CMakeFiles/mail_manager.dir/build.make mail_manager/CMakeFiles/mail_manager.dir/clean
+.PHONY : mail_manager/CMakeFiles/mail_manager.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

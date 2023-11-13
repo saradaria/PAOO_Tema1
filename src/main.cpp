@@ -1,112 +1,67 @@
+#include "email/Email.h"
+#include "gmail/Gmail.h"
+#include "mail_manager/MailManager.h"
 #include <iostream>
-#include <cstring>
-#include "main.h"
-using namespace std;
+using std::cout;
+using std::string;
+using std::endl;
+#include <vector>
+#include <memory>
 
-class Email {
-private:
-    string subiect;
-    string destinatar;
-    char* text;  // ca sa fac cv cu destructorul
-public:
-    Email(const string &subiect, const string &destinatar, const char *textSrc) {
-        this->subiect = subiect;
-        this->destinatar = destinatar;
-
-        text = new char[strlen(textSrc) + 1];
-        strcpy(text, textSrc);
-    }
-
-/*
-//constructor fara parametrii
-public:
-    Email() {
-        subiect = "";
-        destinatar = "";
-        text = nullptr;
-    }
-*/
-
-    // Copy constructor
-    Email(const Email &altEmail) {
-        subiect = altEmail.subiect;
-        destinatar = altEmail.destinatar;
-        text = new char[strlen(altEmail.text) + 1];
-        strcpy(text, altEmail.text);
-        cout<<"Copy constructor apelat";
-    }
-
-    // Destructor
-    ~Email() {
-        delete[] text;
-    }
-
-    // Overload la assign op
-    Email& operator=(const Email &altEmail) {
-        if (this == &altEmail)  // sa nu fie acelasi ob
-            return *this;
-        subiect = altEmail.subiect;
-        destinatar = altEmail.destinatar;
-        delete[] text;
-        text = new char[strlen(altEmail.text) + 1];
-        strcpy(text, altEmail.text);
-
-        return *this;
-    }
-
-
-    void setText(const char *newText){
-        if(newText != NULL){
-        delete[] text;
-        text = new char[strlen(newText) + 1];
-        strcpy(text, newText);
-        }
-    }
-
-    void setSubject(const string newSubject){
-            subiect = newSubject;
-    }
-
-    const char* getText() {
-        return text;
-    }
-
-    // Metoda modificată pentru a afișa informații despre obiectul actual
-    void showObjInfo() const {
-        cout << "Destinatar: " << this->destinatar << endl;
-        cout << "Subiect: " << this->subiect << endl;
-        cout << "Text: " << this->text << endl;
-    }
-
-};
 
 int main() {
 
+    std::vector<std::unique_ptr<communication::Email>> emailuri;
 
-    Email email1("Sedinta daily", "sara.daria@yahoo.ro", "Avem daily la 10");
-    Email email2 = email1; // apeleaza copy constructor
+    // Adăugarea unui Email
+    emailuri.push_back(std::make_unique<communication::Email>("Subiect 1", "sara.daria@yahoo.com", "Mesaj 1"));
 
-    cout << endl;
-    email2.setText("Sedinta s-a mutat la 11:00");
-    email2.setSubject("Schimbare ora sedinta");
+    // Adăugarea unui Gmail
+    emailuri.push_back(std::make_unique<communication::Gmail>("Subiect 2", "ana.maria2@gmail.com", "Mesaj 2"));
 
+    // Afișarea emailurilor
+    communication::afiseazaEmailuri(emailuri);
 
-    cout << "Email 2 Text: " << email2.getText() << endl;
-    cout << "Email 1 Text: " << email1.getText() << endl;
+    cout<<endl;
 
-    cout << endl;
+    std::shared_ptr<communication::Email> email = std::make_shared<communication::Email>("Intalnire", "maria.paula@email.com", "Avem daily maine la 11:00");
 
-    email1.showObjInfo();
-    cout << endl;
-    email2.showObjInfo();
+    std::vector<string> destinatari = {"colega1@yahoo.com", "colega2@yahoo.com", "colega3@yahoo.com"};
+    communication::trimiteLaDestinatari(email, destinatari);
 
-    /*
-    // nu se apeleaza copy const dar am eroare daca nu am un default constructor
-    Email emailNoCopy1("Salut", "destinatar@yahoo.com", "Buna ziua!");
-    Email emailNoCopy2;
-    emailNoCopy2 = emailNoCopy1;  // Nu se apelează copy constructorul, ci operatorul de atribuire
-    */
+    cout<<endl;
 
+    communication::Email email2("Daily Meeting", "sara.baciut@yahoo.ro", "Intalnirea zilnica este la ora 10!!!!");
+    communication::Gmail gmail2("Iesire cafea", "sara.daria@yahoo.ro", "Te astept sambata la o cafea in Unirii la 14:00");
+
+    // Adaug un sufix la subiectul emailului, o data string, o data int
+    email2.adaugaSufixLaSubiect(" - actualizat");
+    gmail2.adaugaSufixLaSubiect(2023);
+
+    // Afisez subiectele actualizate
+    cout << "Subiect Email: " << email2.getSubiect() << endl;
+    cout << "Subiect Gmail: " << gmail2.getSubiect() << endl;
+
+    cout<<endl;
+
+    cout<<"Cream un manager pt Emailuri"<<endl;
+
+    communication::MailManager<communication::Email> MailManager;
+    MailManager.adaugaMail("Subiect 1", "destinatar1@example.com", "Mesajul 1");
+    MailManager.adaugaMail("Subiect 2", "destinatar2@example.com", "Mesajul 2");
+
+    MailManager.trimiteMailuri();
+
+    //MailManager.afiseazaEmailuri();
+
+    cout<<endl;
+    cout<<"Cream un manager pt Gmailuri"<<endl;
+
+    communication::MailManager<communication::Gmail> gMailManager;
+    gMailManager.adaugaMail("Subiect 1", "destinatar1@gmail.com", "Mesajul 1");
+    gMailManager.adaugaMail("Subiect 2", "destinatar2@gmail.com", "Mesajul 2");
+
+    gMailManager.stergeMailuri();
 
     return 0;
 }

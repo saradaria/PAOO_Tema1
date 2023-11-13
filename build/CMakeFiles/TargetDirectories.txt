@@ -1,3 +1,12 @@
-/home/saradaria/Tema1_paoo/build/CMakeFiles/EmailTemplate.dir
-/home/saradaria/Tema1_paoo/build/CMakeFiles/edit_cache.dir
-/home/saradaria/Tema1_paoo/build/CMakeFiles/rebuild_cache.dir
+/home/saradaria/PAOO_teme/build/CMakeFiles/main.dir
+/home/saradaria/PAOO_teme/build/CMakeFiles/edit_cache.dir
+/home/saradaria/PAOO_teme/build/CMakeFiles/rebuild_cache.dir
+/home/saradaria/PAOO_teme/build/email/CMakeFiles/email.dir
+/home/saradaria/PAOO_teme/build/email/CMakeFiles/edit_cache.dir
+/home/saradaria/PAOO_teme/build/email/CMakeFiles/rebuild_cache.dir
+/home/saradaria/PAOO_teme/build/gmail/CMakeFiles/gmail.dir
+/home/saradaria/PAOO_teme/build/gmail/CMakeFiles/edit_cache.dir
+/home/saradaria/PAOO_teme/build/gmail/CMakeFiles/rebuild_cache.dir
+/home/saradaria/PAOO_teme/build/mail_manager/CMakeFiles/mail_manager.dir
+/home/saradaria/PAOO_teme/build/mail_manager/CMakeFiles/edit_cache.dir
+/home/saradaria/PAOO_teme/build/mail_manager/CMakeFiles/rebuild_cache.dir
